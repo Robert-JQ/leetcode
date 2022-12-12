@@ -1,14 +1,20 @@
-package reverseinteger;
+package com.robert.leetcode.reverseinteger;
+
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Robert-JQ
  * @desc 整数反转 https://leetcode-cn.com/problems/reverse-integer/
  * @date 2019/04/15 11:06
  */
-public class ReverseInteger {
+@Slf4j
+public class ReverseIntegerTest {
 
-    public static void main(String[] args) {
-        System.out.println(reverseInteger1(-2147483648));
+    @Test
+    public void reverseIntegerTest() {
+        int i = 837024;
+        log.info("{} reverseInteger {}", i, reverseInteger1(i));
     }
 
     private static int reverseInteger1(int x) {

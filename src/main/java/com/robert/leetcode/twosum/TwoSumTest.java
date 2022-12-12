@@ -1,15 +1,20 @@
-package twosum;
+package com.robert.leetcode.twosum;
+
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Robert-JQ
  * @desc 两数之和 https://leetcode-cn.com/problems/two-sum/
  * @date 2019/04/15 11:16
  */
-public class TwoSum {
+@Slf4j
+public class TwoSumTest {
 
-    public static void main(String[] args) {
+    @Test
+    public void twoSumTest() {
         int[] result = twoSum1(new int[]{2, 7, 11, 15}, 22);
-        System.out.println(result[0] + "," + result[1]);
+        log.info("result1:{}, result2:{}", result[0], result[1]);
     }
 
     /**
@@ -20,7 +25,7 @@ public class TwoSum {
      * @param target 给定的目标值
      * @return int[]
      */
-    private static int[] twoSum1(int[] nums, int target) {
+    private int[] twoSum1(int[] nums, int target) {
         int[] result = new int[2];
         for (int n = 0 ; n < nums.length ; n++) {
             for (int m = 0 ; m < nums.length ; m++) {
