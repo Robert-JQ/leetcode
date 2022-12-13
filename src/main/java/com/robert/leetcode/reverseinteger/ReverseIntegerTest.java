@@ -15,6 +15,8 @@ public class ReverseIntegerTest {
     public void reverseIntegerTest() {
         int i = 837024;
         log.info("{} reverseInteger {}", i, reverseInteger1(i));
+
+        log.info("{} reverseInteger {}", i, reverseInteger2(i));
     }
 
     /**
@@ -24,7 +26,7 @@ public class ReverseIntegerTest {
      * @param x 给定的整数
      * @return int
      */
-    private static int reverseInteger1(int x) {
+    private int reverseInteger1(int x) {
         if (x >= Integer.MAX_VALUE || x <= Integer.MIN_VALUE) {
             return 0;
         }
@@ -34,6 +36,21 @@ public class ReverseIntegerTest {
             return 0;
         }
         return (int) ((x >= 0) ? result : -result);
+    }
+
+    /**
+     * @desc 解法二：对整数逐位反转
+     * @author Robert-JQ
+     * @date 2022/12/13 13:43
+     * @param x
+     * @return int
+     */
+    private int reverseInteger2(int x) {
+        long res = 0;
+        for (; x != 0; x /= 10) {
+            res = res * 10 + x % 10;
+        }
+        return res > Integer.MAX_VALUE || res < Integer.MIN_VALUE ? 0 : (int) res;
     }
 
 }
