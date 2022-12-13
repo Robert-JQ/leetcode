@@ -24,7 +24,7 @@ public class TwoSumTest {
     }
 
     /**
-     * @desc 两数之和解法一：用最暴力的方法穷举尝试
+     * @desc 解法一：用最暴力的方法穷举尝试
      * @author Robert-JQ
      * @date 2019/4/15 11:25
      * @param nums 给定的数组
@@ -45,7 +45,7 @@ public class TwoSumTest {
     }
 
     /**
-     *
+     * @desc 解法二：使用map求解
      * @author Robert-JQ
      * @date 2022/12/12 23:21
      * @param nums 给定的数组
@@ -53,17 +53,14 @@ public class TwoSumTest {
      * @return int[]
      */
     private int[] twoSum2(int[] nums, int target) {
-        int[] result = new int[2];
-        Map<Integer, Integer> map = new HashMap<>(8);
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0 ; i < nums.length ; i++) {
-            int temp = target - nums[i];
-            if (map.containsKey(temp)) {
-                result[0] = i;
-                result[1] = map.get(temp);
+            if (map.containsKey(nums[i])) {
+               return new int[]{map.get(nums[i]), i};
             }
-            map.put(nums[i], i);
+            map.put(target - nums[i], i);
         }
-        return result;
+        return null;
     }
 
 }
